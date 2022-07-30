@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="msg-header">
+        <div class="msg-header-img">
+               
+        </div>
+        <div class="active">
+            <h4>ArogyaSetu PRO</h4>
+            <h6>24 X 7 Health Consultant</h6>
+        </div>
+        <div class="header-icon">
+            <i class="fas fa-bars fa-lg"></i>
+        </div>
+    </div>
+    <div class="chat-page scrollbar scrollbar-near-moon" id="messageBody">
+        <div class="msg-inbox">
+            <div class="chats">
+                <div class="msg-page">
+                    
+                {% for dist in dists %}
+                {% if dist.by == 'bot' %}  
+                    <div class="received-chats">
+                        <div class="received-msg">
+                            <div class="received-msg-inbox">
+                                <p>
+                                    {{dist.text}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if dist.by == 'user' %}  
+                    <div class="outgoing-chats">
+                        <div class="outgoing-msg">
+                            <div class="outgoing-msg-inbox">
+                                <p>
+                                    {{dist.text}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-group" >
+        <form autocomplete="off" action="mention" style="display: flex !important;">
+            {% csrf_token %}
+            <input type="text" id="text" name="text" class="form-control" placeholder="Write message..." size="55">
+            <input type="submit" class="submitbutton"> 
+            <i class="fas fa-paper-plane fa-lg"></i>
+        </form>
+        
+    </div>
+
+</div>
+
+<script>
+    var objDiv = document.getElementById("messageBody");
+    objDiv.scrollTop = objDiv.scrollHeight;
+    //window.scrollTo(0,document.querySelector(".chat-page").scrollHeight);
+</script>
+
+
+{% endblock  %}

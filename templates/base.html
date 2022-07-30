@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/sweetalert.js' %}"></script>
+    <script src="{% static 'js/fontawesome.js' %}" ></script>
+    <script src="{% static 'js/java.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body >
+    {% block content %}
+    {% endblock  %}
+    <script>
+        window.onload=function () {
+            var objDiv = document.getElementById("messageBody");
+            objDiv.scrollTop = objDiv.scrollHeight;
+       }
+    </script>
+</body>
+</html>

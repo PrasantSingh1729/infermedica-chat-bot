@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <div class="form-container">
+        <form action="access" autocomplete="off" method="get" class="form">
+            {% csrf_token %}
+            <h1>Please fill these details</h1>
+            Enter your Phone Number: <br> <input type="tel" name="number" placeholder="Phone Number" pattern="[1-9]{1}[0-9]{9}" required><br>
+            Enter your Full Name: <br> <input type="text" name="name"  placeholder="Full Name" required><br>
+            Enter your Age: <br> <input type="number" name="age" placeholder="Age" min="12" max="105" required><br>
+            <input type="radio" id="sex" name="sex" value="male" required> Male <br> <input type="radio" id="sex" name="sex" value="female" required> Female <br>
+            <input type="radio" id="sex" name="sex" value="other" required> Other <br>
+            <input type="Submit">
+        </form>    
+    </div>
+    
+    
+
+{% endblock  %}
